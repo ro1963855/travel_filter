@@ -31,7 +31,6 @@ gulp.task('minify-css', ['concat'], function () {
         .pipe(gulp.dest('./src/assets/stylesheet/build/'));
 });
 
-
 gulp.task('default', ['sass', 'minify-css'], function () {
     gulp.watch('./src/assets/stylesheet/scss/**/*.scss', ['sass']);
     gulp.watch('./src/assets/stylesheet/css/**/*.css', ['minify-css']);
