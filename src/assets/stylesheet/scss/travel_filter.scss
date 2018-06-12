@@ -1,3 +1,6 @@
 @import 'node_modules/bootstrap/scss/_functions.scss';
-@import '_variables';
+@import 'bootstrap_variables_customer';
 @import 'node_modules/bootstrap/scss/bootstrap.scss';
+@import 'fonts';
+@import 'travel_filter_variables';
+@import 'components/navbar';

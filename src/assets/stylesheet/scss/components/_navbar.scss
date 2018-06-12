@@ -1,0 +1,87 @@
+.tf-navbar {
+  @include media-breakpoint-up(xs) { 
+    height: 69px;
+  }
+
+  @include media-breakpoint-up(md) { 
+    height: 92px;
+  }
+
+  .tf-brand {
+    @include media-breakpoint-up(xs) { 
+      width: auto;
+      display: flex;
+      align-items: center;
+      margin: auto;
+    }
+    
+    @include media-breakpoint-up(md) {
+      width: 300px;
+      display: block;
+      padding-left: $md-leftSide-padding-left;
+      margin-left: 0;
+      margin-right: 0;
+    }
+    
+    @include media-breakpoint-up(lg) {
+      display: block;
+      margin-left: $lg-leftSide-margin-left;
+    }
+
+    .tf-brand-logo {
+      img {
+        @include media-breakpoint-up(xs) { 
+          margin: auto;
+          width: 105px;
+          height: 29px;
+        }
+      
+        @include media-breakpoint-up(md) {
+          margin: 0;
+          width: 157px;
+          height: $md-header-content-height;
+        }
+
+      }
+    }
+  }
+
+  .tf-navbar-content {
+    margin-left: $md-rightSide-margin-left;
+    @include media-breakpoint-up(xs) {
+      display: none;
+    }
+
+    @include media-breakpoint-up(md) {
+      display: block;
+    } 
+
+  }
+
+  .tf-search {
+    height: $md-header-content-height;
+    border-bottom: 1px solid $white;
+    width: 388px;
+  }
+
+  .tf-search-icon {
+    font-size: 20px;
+    color: $white;
+  }
+
+  .tf-search-input {
+    width: calc(100% - 20px);
+    background-color: transparent;
+    border: 0;
+    color: $white;
+    font: $font-paragraph;
+    font-size: 20px;
+    &::placeholder {
+      color: rgba(255,255,255,0.50);
+      font: $font-lable;
+      font-size: 20px;
+    }
+
+  }
+
+}
