@@ -4,6 +4,7 @@ import Vue from 'vue';
 import BootstrapVue from 'bootstrap-vue';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
+import VueLodash from 'vue-lodash';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import './assets/stylesheet/build/all.min.css';
 import App from './App';
@@ -11,6 +12,7 @@ import router from './router';
 
 Vue.use(BootstrapVue);
 Vue.use(VueAxios, axios);
+Vue.use(VueLodash);
 
 Vue.config.productionTip = false;
 
