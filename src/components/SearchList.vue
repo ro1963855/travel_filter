@@ -4,13 +4,13 @@
       <div class="tf-searchlist-header">
         <h1 class="tf-searchlist-counter mb-0">
           Showing
-          <span class="tf-searchlist-counterNumber">{{ searchDatas.result.length }}</span>
+          <span class="tf-searchlist-counterNumber">{{ searchDatas.length }}</span>
           results by…
         </h1>
         <div class="tf-searchlist-tagList row m-0">
-          <div class="tf-searchlist-tag">
-            <span>Koahsiung</span>
-            <i class="far fa-times-circle"></i>
+          <div class="tf-searchlist-tag" v-for="tags in filterTags" :key="tags.tagsName">
+            <span>{{ tags.tagsValue }}</span>
+            <i class="far fa-times-circle" @click="removeTag(tags.tagsName)"></i>
           </div>
         </div>
       </div>
@@ -36,11 +36,12 @@
         </div>
       </div>
       <b-pagination size="md"
-                    :total-rows="searchDatas.result.length"
+                    :total-rows="searchDatas.length"
                     v-model="pagination.currentPage"
                     class="float-right"
                     :per-page="pagination.perPage"
-                    @input="getPageData(searchDatas.result)"></b-pagination>
+                    v-if="searchDatas.length !== 0"
+                    @input="getPageData(searchDatas)"></b-pagination>
     </div>
   </div>
 </template>
@@ -58,24 +59,32 @@ export default {
       isGetInfo: false,
       showSearchDatas: [],
       pagination: {
-        currentPage: 1,
-        perPage: 1,
+        currentPage: 0,
+        perPage: 0,
       },
+      filterTags: [],
+      filter: {},
     };
   },
   methods: {
-    sendSearchDataListener() {
+    getSearchDataFromFilterListener() {
       const vm = this;
-      vm.$eventHub.$on('send-search-data', (searchDatas) => {
+      vm.$eventHub.$on('send-search-data', (searchDatas, filter, filterTags) => {
         vm.searchDatas = searchDatas;
         vm.isGetInfo = true;
-        vm.showSearchDatas = vm.searchDatas.result;
-        vm.getPageData(vm.searchDatas.result);
+        vm.filter = filter;
+        vm.filterTags = filterTags;
+        vm.pagination.currentPage = 1;
+        vm.getPageData(vm.searchDatas);
       });
     },
-    getSearchData() {
+    getSearchDataFromFilter() {
       const vm = this;
       vm.$eventHub.$emit('get-search-data', vm.searchDatas);
+    },
+    sendFilterFromSearchList() {
+      const vm = this;
+      vm.$eventHub.$emit('send-filter-form-searchlist', vm.filter);
     },
     getPageData(searchDatas) {
       const startIndex = (this.pagination.currentPage - 1) * this.pagination.perPage;
@@ -93,17 +102,30 @@ export default {
       if (perPage !== this.pagination.perPage) {
         this.pagination.currentPage = 1;
         this.pagination.perPage = perPage;
-        this.getPageData(this.searchDatas.result);
+        this.getPageData(this.searchDatas);
       }
     },
     listenerResizeEvent() {
       const vm = this;
       $(window).resize(() => vm.setPagination());
     },
+    removeTag(tagsName) {
+      if (tagsName === 'searchWord') {
+        this.filter[tagsName] = '';
+      } else if (tagsName === 'isOnlyShowFree') {
+        this.filter[tagsName] = false;
+      } else if (tagsName === 'isOnlyShowOpenAllDay') {
+        this.filter[tagsName] = false;
+      } else if (tagsName === 'zoneSelected') {
+        this.filter[tagsName] = '全部';
+      }
+      this.sendFilterFromSearchList();
+    },
   },
   created() {
     this.setPagination();
-    this.sendSearchDataListener();
+    this.getSearchDataFromFilterListener();
+    this.getSearchDataFromFilter();
     this.listenerResizeEvent();
   },
 };

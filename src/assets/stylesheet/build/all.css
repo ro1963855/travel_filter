@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*!
  * Bootstrap v4.1.1 (https://getbootstrap.com/)
  * Copyright 2011-2018 The Bootstrap Authors
@@ -6225,6 +6226,11 @@ a.text-dark:hover, a.text-dark:focus {
   @media (min-width: 1200px) {
     .tf-searchlist {
       display: block; } }
+  .tf-searchlist .tf-searchlist-header {
+    margin-bottom: 24px; }
+    @media (max-width: 767.98px) {
+      .tf-searchlist .tf-searchlist-header {
+        display: none; } }
   .tf-searchlist .tf-searchlist-counter {
     color: #000;
     font: normal normal 20px "Roboto", sans-serif;
@@ -6233,7 +6239,6 @@ a.text-dark:hover, a.text-dark:focus {
     font: normal bold 24px "Roboto", sans-serif;
     color: #9013FE; }
   .tf-searchlist .tf-searchlist-tag {
-    width: 128px;
     height: 35px;
     border: 1px solid #9013FE;
     border-radius: 100px;
@@ -6253,10 +6258,8 @@ a.text-dark:hover, a.text-dark:focus {
     .tf-searchlist .tf-searchlist-tag:hover {
       background-color: #9013FE;
       color: #fff; }
-  .tf-searchlist .tf-searchlist-viewpointList {
-    margin-bottom: 24px; }
   .tf-searchlist .tf-searchlist-viewpoint {
-    margin-top: 24px;
+    margin-bottom: 24px;
     display: flex;
     flex-direction: column; }
     @media (min-width: 1200px) {

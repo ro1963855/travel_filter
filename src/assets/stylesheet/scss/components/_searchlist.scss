@@ -10,6 +10,13 @@
         display: block;
     }
 
+    .tf-searchlist-header {
+        margin-bottom: 24px;
+        @include media-breakpoint-down(sm) {
+            display: none;
+        }
+    }
+
     .tf-searchlist-counter {
         color: $black;
         font: $font-placeholder;
@@ -22,7 +29,6 @@
     }
 
     .tf-searchlist-tag {
-        width: 128px;
         height: 35px;
         border: 1px solid $tf-light-purple;
         border-radius: 100px;
@@ -52,12 +58,8 @@
 
     }
 
-    .tf-searchlist-viewpointList {
-        margin-bottom: 24px;
-    }
-
     .tf-searchlist-viewpoint {
-        margin-top: 24px;
+        margin-bottom: 24px;
         display: flex;
         @include media-breakpoint-up(xs) {
             flex-direction: column;

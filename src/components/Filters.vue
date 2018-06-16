@@ -64,10 +64,7 @@ export default {
         },
       ],
       completeDatas: [],
-      searchDatas: {
-        result: [],
-        tag: [],
-      },
+      searchDatas: [],
       zones: [],
     };
   },
@@ -78,8 +75,8 @@ export default {
       vm.$http.get(api).then((response) => {
         vm.completeDatas = response.data.result.records;
         vm.zones = vm.getUniqueZone(vm.completeDatas);
-        vm.searchDatas.result = vm.completeDatas;
-        vm.sendSearchData();
+        vm.searchDatas = vm.completeDatas;
+        vm.sendSearchDataFromFilter();
       });
     },
     getUniqueZone(data) {
@@ -91,17 +88,76 @@ export default {
     getSearchDataListener() {
       const vm = this;
       vm.$eventHub.$on('get-search-data', () => {
-        vm.sendSearchData();
+        vm.sendSearchDataFromFilter();
       });
     },
-    sendSearchData() {
+    getFilterFromSearchListListener() {
       const vm = this;
-      vm.$eventHub.$emit('send-search-data', vm.searchDatas);
+      vm.$eventHub.$on('send-filter-form-searchlist', (filter) => {
+        vm.filter = filter;
+        vm.generateTags();
+        vm.sendSearchDataFromFilter();
+      });
+    },
+    sendSearchDataFromFilter() {
+      const vm = this;
+      const filterDatas = this.filterCompleteDatas();
+      const filterTags = vm.generateTags();
+      vm.$eventHub.$emit('send-search-data', filterDatas, vm.filter, filterTags);
+    },
+    filterCompleteDatas() {
+      const vm = this;
+      let filterDatas = this.completeDatas;
+      vm._.forEach(vm.filter, (value, key) => {
+        if (key === 'searchWord' && !vm._.isEmpty(value)) {
+          filterDatas = this._.filter(filterDatas, data =>
+            data.Ticketinfo.includes(value) ||
+            data.Zone.includes(value) ||
+            data.Add.includes(value) ||
+            data.Opentime.includes(value) ||
+            data.Description.includes(value) ||
+            data.Name.includes(value),
+          );
+        } else if (key === 'isOnlyShowFree' && value) {
+          filterDatas = this._.filter(filterDatas, { Ticketinfo: '免費參觀' });
+        } else if (key === 'isOnlyShowOpenAllDay' && value) {
+          filterDatas = this._.filter(filterDatas, { Opentime: '全天候開放' });
+        } else if (key === 'zoneSelected' && value !== '全部') {
+          filterDatas = this._.filter(filterDatas, { Zone: value });
+        }
+      });
+      return filterDatas;
+    },
+    generateTags() {
+      const vm = this;
+      const filterTags = [];
+      vm._.forEach(vm.filter, (value, key) => {
+        if (key === 'searchWord' && !vm._.isEmpty(value)) {
+          filterTags.push({ tagsName: key, tagsValue: value });
+        } else if (key === 'isOnlyShowFree' && value) {
+          filterTags.push({ tagsName: key, tagsValue: '免費參觀' });
+        } else if (key === 'isOnlyShowOpenAllDay' && value) {
+          filterTags.push({ tagsName: key, tagsValue: '全天候開放' });
+        } else if (key === 'zoneSelected' && value !== '全部') {
+          filterTags.push({ tagsName: key, tagsValue: value });
+        }
+      });
+
+      return filterTags;
     },
   },
   created() {
     this.getKaohsiungOpenData();
     this.getSearchDataListener();
+    this.getFilterFromSearchListListener();
+  },
+  watch: {
+    filter: {
+      handler() {
+        this.sendSearchDataFromFilter();
+      },
+      deep: true,
+    },
   },
 };
 </script>
