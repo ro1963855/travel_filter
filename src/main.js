@@ -14,6 +14,7 @@ Vue.use(BootstrapVue);
 Vue.use(VueAxios, axios);
 Vue.use(VueLodash);
 
+Vue.prototype.$eventHub = new Vue();
 Vue.config.productionTip = false;
 
 /* eslint-disable no-new */

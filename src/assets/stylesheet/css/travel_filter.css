@@ -6109,9 +6109,6 @@ a.text-dark:hover, a.text-dark:focus {
   .tf-navbar .tf-navbar-content {
     margin-left: 40px;
     display: none; }
-    @media (min-width: 768px) {
-      .tf-navbar .tf-navbar-content {
-        display: block; } }
   .tf-navbar .tf-search {
     height: 44px;
     border-bottom: 1px solid #fff;
@@ -6120,13 +6117,217 @@ a.text-dark:hover, a.text-dark:focus {
     font-size: 20px;
     color: #fff; }
   .tf-navbar .tf-search-input {
-    width: calc(100% - 20px);
+    width: calc(100% - 36px);
+    margin-left: 8px;
     background-color: transparent;
     border: 0;
     color: #fff;
-    font: normal normal 16px "Roboto Regular", sans-serif;
+    font: normal normal 16px "Roboto", sans-serif;
     font-size: 20px; }
     .tf-navbar .tf-search-input::placeholder {
       color: rgba(255, 255, 255, 0.5);
-      font: italic normal 16px "Roboto Italic", sans-serif;
+      font: italic normal 16px "Roboto", sans-serif;
       font-size: 20px; }
+  .tf-navbar .tf-filter-collapse {
+    margin-right: 24px;
+    display: block; }
+    .tf-navbar .tf-filter-collapse:hover {
+      cursor: pointer; }
+
+.tf-filters-column {
+  width: 300px; }
+  @media (min-width: 1200px) {
+    .tf-filters-column {
+      margin-left: 38px; } }
+  @media (min-width: 414px) {
+    .tf-filters-column {
+      width: 300px; } }
+  @media (max-width: 767.98px) {
+    .tf-filters-column {
+      width: 100%;
+      display: none; }
+      .tf-filters-column.open {
+        display: block; } }
+
+.tf-filters {
+  background-color: #EBEBEB; }
+  .tf-filters .tf-filters-card {
+    border-top: 1px solid #D7D7D7;
+    padding: 24px 40px; }
+    @media (max-width: 767.98px) {
+      .tf-filters .tf-filters-card {
+        width: 100%;
+        border-top: 1px solid #9B9B9B;
+        background-color: #D7D7D7; }
+        .tf-filters .tf-filters-card .tf-filters-body {
+          display: none; }
+        .tf-filters .tf-filters-card:last-child {
+          border-bottom: 1px solid #9B9B9B; }
+        .tf-filters .tf-filters-card.active {
+          background-color: #EBEBEB; }
+          .tf-filters .tf-filters-card.active .tf-filters-body {
+            display: block; } }
+  .tf-filters .tf-filters-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+    .tf-filters .tf-filters-header span {
+      font: normal bold 24px "Roboto", sans-serif;
+      font-size: 20px;
+      color: #000000; }
+    .tf-filters .tf-filters-header i {
+      font-size: 17px;
+      color: #9B9B9B;
+      display: none; }
+      .tf-filters .tf-filters-header i:hover {
+        cursor: pointer; }
+      @media (max-width: 767.98px) {
+        .tf-filters .tf-filters-header i.active {
+          display: block; } }
+  .tf-filters .tf-filters-body {
+    margin-top: 24px; }
+  .tf-filters .ts-filter-checkbox .custom-control-label::before {
+    background-color: #fff; }
+  .tf-filters .tf-search {
+    height: 44px;
+    border-bottom: 1px solid #000;
+    width: 100%; }
+  .tf-filters .tf-search-icon {
+    font-size: 20px;
+    color: #000; }
+  .tf-filters .tf-search-input {
+    text-overflow: ellipsis;
+    width: calc(100% - 44px);
+    margin-left: 12px;
+    background-color: transparent;
+    border: 0;
+    color: #000;
+    font: normal normal 16px "Roboto", sans-serif;
+    font-size: 20px; }
+    .tf-filters .tf-search-input::placeholder {
+      color: #9B9B9B;
+      font: italic normal 16px "Roboto", sans-serif;
+      font-size: 20px; }
+    .tf-filters .tf-search-input.form-control:focus {
+      border: 0;
+      box-shadow: none; }
+  .tf-filters .tf-filters-card-search {
+    display: none; }
+    @media (max-width: 767.98px) {
+      .tf-filters .tf-filters-card-search.active {
+        display: block; } }
+
+.tf-searchlist {
+  padding: 24px 40px;
+  display: flex;
+  align-items: center;
+  flex-direction: column; }
+  @media (min-width: 1200px) {
+    .tf-searchlist {
+      display: block; } }
+  .tf-searchlist .tf-searchlist-counter {
+    color: #000;
+    font: normal normal 20px "Roboto", sans-serif;
+    font-size: 24px; }
+  .tf-searchlist .tf-searchlist-counterNumber {
+    font: normal bold 24px "Roboto", sans-serif;
+    color: #9013FE; }
+  .tf-searchlist .tf-searchlist-tag {
+    width: 128px;
+    height: 35px;
+    border: 1px solid #9013FE;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    color: #9013FE;
+    margin-right: 8px;
+    margin-top: 8px; }
+    .tf-searchlist .tf-searchlist-tag > span {
+      font: italic normal 16px "Roboto", sans-serif;
+      margin-right: 8px; }
+    .tf-searchlist .tf-searchlist-tag > i {
+      font-size: 14px; }
+      .tf-searchlist .tf-searchlist-tag > i:hover {
+        cursor: pointer; }
+    .tf-searchlist .tf-searchlist-tag:hover {
+      background-color: #9013FE;
+      color: #fff; }
+  .tf-searchlist .tf-searchlist-viewpointList {
+    margin-bottom: 24px; }
+  .tf-searchlist .tf-searchlist-viewpoint {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column; }
+    @media (min-width: 1200px) {
+      .tf-searchlist .tf-searchlist-viewpoint {
+        flex-direction: row; } }
+    .tf-searchlist .tf-searchlist-viewpoint:hover {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+  .tf-searchlist .tf-searchlist-viewpointImage {
+    background-size: cover;
+    width: 334px;
+    height: 196px; }
+    @media (min-width: 768px) {
+      .tf-searchlist .tf-searchlist-viewpointImage {
+        width: 388px;
+        height: 196px; } }
+    @media (min-width: 1200px) {
+      .tf-searchlist .tf-searchlist-viewpointImage {
+        width: 220px;
+        height: 220px; } }
+  .tf-searchlist .tf-searchlist-viewpointContent {
+    background-color: #fff;
+    padding: 24px 20px;
+    width: 334px;
+    height: 218px; }
+    @media (min-width: 768px) {
+      .tf-searchlist .tf-searchlist-viewpointContent {
+        width: 388px; } }
+    @media (min-width: 1200px) {
+      .tf-searchlist .tf-searchlist-viewpointContent {
+        width: calc(100% - 220px);
+        height: 220px; } }
+    .tf-searchlist .tf-searchlist-viewpointContent h2 {
+      font: normal bold 24px "Roboto", sans-serif;
+      font-weight: bold;
+      color: #9013FE;
+      margin-bottom: 16px; }
+    .tf-searchlist .tf-searchlist-viewpointContent .tf-searchlist-viewpointDescription {
+      height: 50px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      margin-bottom: 13px; }
+      .tf-searchlist .tf-searchlist-viewpointContent .tf-searchlist-viewpointDescription p {
+        font: 　 normal normal 16px "Roboto", sans-serif;
+        color: #000;
+        line-height: 24px; }
+      @media (min-width: 1200px) {
+        .tf-searchlist .tf-searchlist-viewpointContent .tf-searchlist-viewpointDescription {
+          width: calc(100% - 40px); } }
+  .tf-searchlist .tf-searchlist-viewpointTag {
+    margin-bottom: 16px; }
+    .tf-searchlist .tf-searchlist-viewpointTag span {
+      padding: 3px 16px;
+      background: #D7D7D7;
+      border-radius: 100px;
+      font: italic normal 16px "Roboto", sans-serif;
+      color: #fff; }
+  .tf-searchlist .tf-searchlist-viewpointZone {
+    font: normal normal 16px "Roboto", sans-serif;
+    color: #9B9B9B; }
+
+.tf-body {
+  background-color: #F2F2F2;
+  min-height: calc(100vh - 69px); }
+  @media (min-width: 768px) {
+    .tf-body {
+      min-height: calc(100vh - 92px); } }
+  .tf-body .tf-content {
+    width: 100%; }
+    @media (min-width: 768px) {
+      .tf-body .tf-content {
+        width: calc(100% - 300px); } }
+    @media (min-width: 1200px) {
+      .tf-body .tf-content {
+        width: calc(100% - 38px - 300px); } }

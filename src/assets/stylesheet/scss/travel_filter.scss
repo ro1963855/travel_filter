@@ -4,3 +4,32 @@
 @import 'fonts';
 @import 'travel_filter_variables';
 @import 'components/navbar';
+@import 'components/filters';
+@import 'components/searchlist';
+
+.tf-body {
+    background-color: $tf-gary4;
+    @include media-breakpoint-up(xs) { 
+        min-height: calc(100vh - #{$xs-header-height});
+    }
+
+    @include media-breakpoint-up(md) { 
+        min-height: calc(100vh - #{$md-header-height});
+    }
+    
+    .tf-content {
+        @include media-breakpoint-up(xs) {
+            width: 100%;
+        }
+
+        @include media-breakpoint-up(md) {
+            width: calc(100% - #{$left-side-content-width});
+        }
+    
+        @include media-breakpoint-up(lg) {
+            width: calc(100% - #{$lg-leftSide-margin-left} - #{$left-side-content-width});
+        }
+    
+    }
+
+}

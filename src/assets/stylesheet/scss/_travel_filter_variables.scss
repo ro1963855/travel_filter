@@ -1,17 +1,28 @@
+// font
+$font-title: normal bold 24px 'Roboto', sans-serif;
+$font-title2: normal bold 36px 'Roboto', sans-serif;
+$font-subtitle: normal bold 20px 'Roboto', sans-serif;
+$font-paragraph: normal normal 16px 'Roboto', sans-serif;
+$font-remark: normal normal 16px 'Roboto', sans-serif;
+$font-placeholder: normal normal 20px 'Roboto', sans-serif;
+$font-lable: italic normal 16px 'Roboto', sans-serif;
+
+// color
+$tf-light-purple: #9013FE;
+$tf-gary1: #9B9B9B;
+$tf-gary2: #D7D7D7;
+$tf-gary3: #EBEBEB;
+$tf-gary4: #F2F2F2;
+
 // common
 $lg-leftSide-margin-left: 38px;
 $md-leftSide-padding-left: 40px;
+$md-leftSide-padding-x: 24px;
 
 $md-rightSide-margin-left: 40px;
-
-// font
-$font-title: normal bold 24px 'Roboto Bold', sans-serif;
-$font-title2: normal bold 36px 'Roboto Bold', sans-serif;
-$font-subtitle: normal bold 20px 'Roboto Bold', sans-serif;
-$font-paragraph: normal normal 16px 'Roboto Regular', sans-serif;
-$font-remark: normal normal 16px 'Roboto Regular', sans-serif;
-$font-placeholder: normal normal 20px 'Roboto Regular', sans-serif;
-$font-lable: italic normal 16px 'Roboto Italic', sans-serif;
+$left-side-content-width: 300px;
 
 // header
+$xs-header-height: 69px;
+$md-header-height: 92px;
 $md-header-content-height: 44px;

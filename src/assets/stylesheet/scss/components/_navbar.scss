@@ -1,10 +1,10 @@
 .tf-navbar {
   @include media-breakpoint-up(xs) { 
-    height: 69px;
+    height: $xs-header-height;
   }
 
   @include media-breakpoint-up(md) { 
-    height: 92px;
+    height: $md-header-height;
   }
 
   .tf-brand {
@@ -16,7 +16,7 @@
     }
     
     @include media-breakpoint-up(md) {
-      width: 300px;
+      width: $left-side-content-width;
       display: block;
       padding-left: $md-leftSide-padding-left;
       margin-left: 0;
@@ -52,10 +52,6 @@
       display: none;
     }
 
-    @include media-breakpoint-up(md) {
-      display: block;
-    } 
-
   }
 
   .tf-search {
@@ -70,7 +66,8 @@
   }
 
   .tf-search-input {
-    width: calc(100% - 20px);
+    width: calc(100% - 36px);
+    margin-left: 8px;
     background-color: transparent;
     border: 0;
     color: $white;
@@ -82,6 +79,15 @@
       font-size: 20px;
     }
 
+  }
+
+  .tf-filter-collapse {
+    margin-right: 24px;
+    display: block;
+    &:hover {
+      cursor: pointer;
+    }
+    
   }
 
 }

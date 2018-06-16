@@ -1,0 +1,133 @@
+.tf-filters-column {
+    width: $left-side-content-width;
+    @include media-breakpoint-up(lg) {
+        margin-left: $lg-leftSide-margin-left;
+    }
+
+    @include media-breakpoint-up(sm) {
+        width: $left-side-content-width;
+    }
+
+    @include media-breakpoint-down(sm) {
+        width: 100%;
+        display: none;       
+        &.open { 
+            display: block;
+        }
+
+    }
+
+}
+
+.tf-filters {
+    background-color: $tf-gary3;
+
+    .tf-filters-card {
+        border-top: 1px solid $tf-gary2;
+        padding: $md-leftSide-padding-x $md-leftSide-padding-left;
+        @include media-breakpoint-down(sm) {
+            width: 100%;
+            border-top: 1px solid $tf-gary1;
+            background-color: $tf-gary2;
+            .tf-filters-body {
+                display: none;
+            }
+
+            &:last-child {
+                border-bottom: 1px solid $tf-gary1;
+            }
+
+            &.active {
+                background-color: $tf-gary3;
+                .tf-filters-body {
+                    display: block;
+                }                
+
+            }
+    
+        }
+        
+    }
+
+    .tf-filters-header {
+        display: flex;
+        align-items: center;
+        justify-content:space-between;
+        span {
+            font: $font-title;
+            font-size: 20px;
+            color: #000000;
+        }
+
+        i {
+            font-size: 17px;
+            color: $tf-gary1;
+            display: none;
+            &:hover {
+                cursor: pointer;
+            }
+
+            @include media-breakpoint-down(sm) {
+                &.active {
+                    display: block;
+                }
+
+            }
+
+        }
+
+    }
+
+    .tf-filters-body {
+        margin-top: $md-leftSide-padding-x;
+    }
+
+    .ts-filter-checkbox .custom-control-label::before {
+        background-color: $white;
+    }
+
+    .tf-search {
+        height: $md-header-content-height;
+        border-bottom: 1px solid $black;
+        width: 100% ;
+    }
+    
+    .tf-search-icon {
+        font-size: 20px;
+        color: $black;
+    }
+
+    .tf-search-input {
+        text-overflow: ellipsis;
+        width: calc(100% - 44px);
+        margin-left: 12px;
+        background-color: transparent;
+        border: 0;
+        color: $black;
+        font: $font-paragraph;
+        font-size: 20px;
+        &::placeholder {
+            color: $tf-gary1;
+            font: $font-lable;
+            font-size: 20px;
+        }
+
+        &.form-control:focus {
+            border: 0;
+            box-shadow: none;
+        }
+
+    }
+
+    .tf-filters-card-search {
+        display: none;
+        @include media-breakpoint-down(sm) {
+            &.active {
+                display: block;
+            }
+
+        }
+
+    }
+
+}

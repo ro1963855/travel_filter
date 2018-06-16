@@ -1,0 +1,155 @@
+.tf-searchlist {
+    padding: 24px 40px;
+    @include media-breakpoint-up(xs) {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    @include media-breakpoint-up(lg) {
+        display: block;
+    }
+
+    .tf-searchlist-counter {
+        color: $black;
+        font: $font-placeholder;
+        font-size: 24px;
+    }
+
+    .tf-searchlist-counterNumber {
+        font: $font-title;
+        color: $tf-light-purple;
+    }
+
+    .tf-searchlist-tag {
+        width: 128px;
+        height: 35px;
+        border: 1px solid $tf-light-purple;
+        border-radius: 100px;
+        display: flex;
+        align-items: center;
+        padding: 8px 16px;
+        color: $tf-light-purple;
+        margin-right: 8px;
+        margin-top: 8px;
+
+        > span {
+            font: $font-lable;
+            margin-right: 8px;
+        }
+
+        > i {
+            font-size: 14px;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        &:hover {
+            background-color: $tf-light-purple;
+            color: $white;
+        }
+
+    }
+
+    .tf-searchlist-viewpointList {
+        margin-bottom: 24px;
+    }
+
+    .tf-searchlist-viewpoint {
+        margin-top: 24px;
+        display: flex;
+        @include media-breakpoint-up(xs) {
+            flex-direction: column;
+        }
+
+        @include media-breakpoint-up(lg) {
+            flex-direction: row;
+        }
+
+        &:hover {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+    }
+
+    .tf-searchlist-viewpointImage {
+        background-size: cover;
+        @include media-breakpoint-up(xs) {
+            width: 334px;
+            height: 196px;
+        }
+
+        @include media-breakpoint-up(md) {
+            width: 388px;
+            height: 196px;
+        }
+        
+        @include media-breakpoint-up(lg) {
+            width: 220px;
+            height: 220px;
+        }
+
+    }
+
+    .tf-searchlist-viewpointContent {
+        background-color: $white;
+        padding: 24px 20px;
+        @include media-breakpoint-up(xs) {
+            width: 334px;
+            height: 218px;
+        }
+
+        @include media-breakpoint-up(md) {
+            width: 388px;
+        }
+        
+        @include media-breakpoint-up(lg) {
+            width: calc(100% - 220px);
+            height: 220px;
+        }
+
+        h2 {
+            font: $font-title;
+            font-weight: bold;
+            color: $tf-light-purple;
+            margin-bottom: 16px;
+        }
+
+        .tf-searchlist-viewpointDescription {
+            height: 50px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            margin-bottom: 13px;
+            p {
+                font:　$font-paragraph;
+                color: $black;
+                line-height: 24px;
+            }
+
+            @include media-breakpoint-up(lg) {
+                width: calc(100% - 40px);
+            }
+
+        }
+
+    }
+
+    .tf-searchlist-viewpointTag {
+        margin-bottom: 16px;
+        span {
+            padding: 3px 16px;
+            background: $tf-gary2;
+            border-radius: 100px;
+            font: $font-lable;
+            color: $white;
+        }
+
+    }
+
+    .tf-searchlist-viewpointZone {
+        font: $font-paragraph;
+        color: $tf-gary1;
+    }
+
+}
