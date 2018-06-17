@@ -44,7 +44,7 @@
             margin-right: 8px;
         }
 
-        > i {
+        > svg {
             font-size: 14px;
             &:hover {
                 cursor: pointer;
@@ -56,6 +56,12 @@
             color: $white;
         }
 
+    }
+
+    .tf-searchlist-viewpointList {
+        a {
+            text-decoration: none;
+        }
     }
 
     .tf-searchlist-viewpoint {

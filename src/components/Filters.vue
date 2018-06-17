@@ -3,7 +3,7 @@
     <div id="filters" class="tf-filters">
       <div class="tf-filters-card tf-filters-card-search active">
           <b-nav-form class="tf-search">
-            <i class="fas fa-search tf-search-icon"></i>
+            <font-awesome-icon icon="search"></font-awesome-icon>
             <b-form-input v-model="filter.searchWord"
                           class="tf-search-input"
                           type="text"
@@ -14,12 +14,12 @@
         :class="{active: card[0].isActive}">
         <div class="tf-filters-header">
           <span>Location</span>
-          <i class="fas fa-plus"
-              :class="{active: !card[0].isActive}"
-              @click="card[0].isActive = !card[0].isActive"></i>
-          <i class="fas fa-minus"
-              :class="{active: card[0].isActive}"
-              @click="card[0].isActive = !card[0].isActive"></i>
+          <font-awesome-icon icon="plus"
+                              :class="{active: !card[0].isActive}"
+                              @click="card[0].isActive = !card[0].isActive"></font-awesome-icon>
+          <font-awesome-icon icon="minus"
+                              :class="{active: card[0].isActive}"
+                              @click="card[0].isActive = !card[0].isActive"></font-awesome-icon>
         </div>
         <div class="tf-filters-body">
           <b-form-select class="h-100" v-model="filter.zoneSelected" :options="zones" />
@@ -29,12 +29,12 @@
         :class="{active: card[1].isActive}">
         <div class="tf-filters-header">
           <span>Categories</span>
-          <i class="fas fa-plus"
-              :class="{active: !card[1].isActive}"
-              @click="card[1].isActive = !card[1].isActive"></i>
-          <i class="fas fa-minus"
-              :class="{active: card[1].isActive}"
-              @click="card[1].isActive = !card[1].isActive"></i>
+          <font-awesome-icon icon="plus"
+                              :class="{active: !card[1].isActive}"
+                              @click="card[1].isActive = !card[1].isActive"></font-awesome-icon>
+          <font-awesome-icon icon="minus"
+                              :class="{active: card[1].isActive}"
+                              @click="card[1].isActive = !card[1].isActive"></font-awesome-icon>
         </div>
         <div class="tf-filters-body">
           <div class="ts-filter-checkbox">
@@ -64,7 +64,6 @@ export default {
         },
       ],
       completeDatas: [],
-      searchDatas: [],
       zones: [],
     };
   },
@@ -75,7 +74,6 @@ export default {
       vm.$http.get(api).then((response) => {
         vm.completeDatas = response.data.result.records;
         vm.zones = vm.getUniqueZone(vm.completeDatas);
-        vm.searchDatas = vm.completeDatas;
         vm.sendSearchDataFromFilter();
       });
     },
@@ -101,6 +99,10 @@ export default {
     },
     sendSearchDataFromFilter() {
       const vm = this;
+      if (vm._.isEmpty(vm.completeDatas)) {
+        return;
+      }
+
       const filterDatas = this.filterCompleteDatas();
       const filterTags = vm.generateTags();
       vm.$eventHub.$emit('send-search-data', filterDatas, vm.filter, filterTags);

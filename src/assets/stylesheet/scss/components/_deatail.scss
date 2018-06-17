@@ -1,0 +1,82 @@
+.tf-detail {
+    width: 644px;
+    padding: 24px 40px;
+    @include media-breakpoint-down(sm) {
+        padding: 0;
+    }
+    .tf-detail-breadcrumb {
+        height: 48px;
+    }
+
+    .tf-detail-body {
+        margin: 24px 0;
+    }
+
+    .tf-detail-picture {
+        height: 352px;
+        width: 100%;
+    }
+
+    .tf-detail-viewpointContent {
+        background-color: $white;
+
+        @include media-breakpoint-up(sm) {
+            padding: 24px 66px;
+        }
+    
+        @include media-breakpoint-down(sm) {
+            padding: 24px 40px;
+        }
+
+        h2 {
+            font: $font-title;
+            font-weight: bold;
+            color: $tf-light-purple;
+            font-size: 36px;
+            @include media-breakpoint-up(sm) {
+                margin-bottom: 24px;
+            }
+        
+            @include media-breakpoint-down(sm) {
+                margin-bottom: 27px;
+            }
+        }
+
+        .tf-detail-viewpointTag {
+            margin-bottom: 16px;
+            span {
+                padding: 3px 16px;
+                background: $tf-gary2;
+                border-radius: 100px;
+                font: $font-lable;
+                color: $white;
+            }
+    
+            @include media-breakpoint-down(sm) {
+                display: none;
+            }
+        }
+
+        .tf-detail-viewpointZone {
+            font: $font-paragraph;
+            color: $tf-gary1;
+            font-size: 16px;
+            > i {
+                font-size: 16px;
+            }
+
+        }
+
+        .tf-detail-viewpointDescription {
+            p {
+                font:　$font-paragraph;
+                color: $black;
+                line-height: 24px;
+                margin-top: 24px;
+                margin-bottom: 0;
+            }
+        }
+
+    }
+
+}

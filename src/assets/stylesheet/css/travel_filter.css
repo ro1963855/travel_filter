@@ -6176,14 +6176,14 @@ a.text-dark:hover, a.text-dark:focus {
       font: normal bold 24px "Roboto", sans-serif;
       font-size: 20px;
       color: #000000; }
-    .tf-filters .tf-filters-header i {
+    .tf-filters .tf-filters-header svg {
       font-size: 17px;
       color: #9B9B9B;
       display: none; }
-      .tf-filters .tf-filters-header i:hover {
+      .tf-filters .tf-filters-header svg:hover {
         cursor: pointer; }
       @media (max-width: 767.98px) {
-        .tf-filters .tf-filters-header i.active {
+        .tf-filters .tf-filters-header svg.active {
           display: block; } }
   .tf-filters .tf-filters-body {
     margin-top: 24px; }
@@ -6251,13 +6251,15 @@ a.text-dark:hover, a.text-dark:focus {
     .tf-searchlist .tf-searchlist-tag > span {
       font: italic normal 16px "Roboto", sans-serif;
       margin-right: 8px; }
-    .tf-searchlist .tf-searchlist-tag > i {
+    .tf-searchlist .tf-searchlist-tag > svg {
       font-size: 14px; }
-      .tf-searchlist .tf-searchlist-tag > i:hover {
+      .tf-searchlist .tf-searchlist-tag > svg:hover {
         cursor: pointer; }
     .tf-searchlist .tf-searchlist-tag:hover {
       background-color: #9013FE;
       color: #fff; }
+  .tf-searchlist .tf-searchlist-viewpointList a {
+    text-decoration: none; }
   .tf-searchlist .tf-searchlist-viewpoint {
     margin-bottom: 24px;
     display: flex;
@@ -6319,6 +6321,62 @@ a.text-dark:hover, a.text-dark:focus {
   .tf-searchlist .tf-searchlist-viewpointZone {
     font: normal normal 16px "Roboto", sans-serif;
     color: #9B9B9B; }
+
+.tf-detail {
+  width: 644px;
+  padding: 24px 40px; }
+  @media (max-width: 767.98px) {
+    .tf-detail {
+      padding: 0; } }
+  .tf-detail .tf-detail-breadcrumb {
+    height: 48px; }
+  .tf-detail .tf-detail-body {
+    margin: 24px 0; }
+  .tf-detail .tf-detail-picture {
+    height: 352px;
+    width: 100%; }
+  .tf-detail .tf-detail-viewpointContent {
+    background-color: #fff; }
+    @media (min-width: 414px) {
+      .tf-detail .tf-detail-viewpointContent {
+        padding: 24px 66px; } }
+    @media (max-width: 767.98px) {
+      .tf-detail .tf-detail-viewpointContent {
+        padding: 24px 40px; } }
+    .tf-detail .tf-detail-viewpointContent h2 {
+      font: normal bold 24px "Roboto", sans-serif;
+      font-weight: bold;
+      color: #9013FE;
+      font-size: 36px; }
+      @media (min-width: 414px) {
+        .tf-detail .tf-detail-viewpointContent h2 {
+          margin-bottom: 24px; } }
+      @media (max-width: 767.98px) {
+        .tf-detail .tf-detail-viewpointContent h2 {
+          margin-bottom: 27px; } }
+    .tf-detail .tf-detail-viewpointContent .tf-detail-viewpointTag {
+      margin-bottom: 16px; }
+      .tf-detail .tf-detail-viewpointContent .tf-detail-viewpointTag span {
+        padding: 3px 16px;
+        background: #D7D7D7;
+        border-radius: 100px;
+        font: italic normal 16px "Roboto", sans-serif;
+        color: #fff; }
+      @media (max-width: 767.98px) {
+        .tf-detail .tf-detail-viewpointContent .tf-detail-viewpointTag {
+          display: none; } }
+    .tf-detail .tf-detail-viewpointContent .tf-detail-viewpointZone {
+      font: normal normal 16px "Roboto", sans-serif;
+      color: #9B9B9B;
+      font-size: 16px; }
+      .tf-detail .tf-detail-viewpointContent .tf-detail-viewpointZone > i {
+        font-size: 16px; }
+    .tf-detail .tf-detail-viewpointContent .tf-detail-viewpointDescription p {
+      font: 　 normal normal 16px "Roboto", sans-serif;
+      color: #000;
+      line-height: 24px;
+      margin-top: 24px;
+      margin-bottom: 0; }
 
 .tf-body {
   background-color: #F2F2F2;

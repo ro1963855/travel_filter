@@ -10,30 +10,33 @@
         <div class="tf-searchlist-tagList row m-0">
           <div class="tf-searchlist-tag" v-for="tags in filterTags" :key="tags.tagsName">
             <span>{{ tags.tagsValue }}</span>
-            <i class="far fa-times-circle" @click="removeTag(tags.tagsName)"></i>
+            <font-awesome-icon :icon="['far', 'times-circle']"
+                                @click="removeTag(tags.tagsName)"></font-awesome-icon>
           </div>
         </div>
       </div>
       <div class="tf-searchlist-viewpointList">
-        <div class="tf-searchlist-viewpoint"
+        <a :href="`/detail/${searchData._id}`"
               v-for="searchData in showSearchDatas"
               v-bind:key="searchData._id">
-          <img class="tf-searchlist-viewpointImage" :src="searchData.Picture1">
-          <div class="tf-searchlist-viewpointContent">
-            <h2>{{ searchData.Name }}</h2>
-            <div class="tf-searchlist-viewpointDescription">
-              <p>{{ searchData.Description }}</p>
-            </div>
-            <div class="tf-searchlist-viewpointTag">
-              <span v-if="searchData.Ticketinfo === '免費參觀'">{{ searchData.Ticketinfo }}</span>
-              <span v-if="searchData.Opentime === '全天候開放'">{{ searchData.Opentime }}</span>
-            </div>
-            <div class="tf-searchlist-viewpointZone">
-              <i class="fas fa-map-marker-alt"></i>
-              <span>{{ searchData.Zone }}</span>
+          <div class="tf-searchlist-viewpoint">
+            <img class="tf-searchlist-viewpointImage" :src="searchData.Picture1">
+            <div class="tf-searchlist-viewpointContent">
+              <h2>{{ searchData.Name }}</h2>
+              <div class="tf-searchlist-viewpointDescription">
+                <p>{{ searchData.Description }}</p>
+              </div>
+              <div class="tf-searchlist-viewpointTag">
+                <span v-if="searchData.Ticketinfo === '免費參觀'">{{ searchData.Ticketinfo }}</span>
+                <span v-if="searchData.Opentime === '全天候開放'">{{ searchData.Opentime }}</span>
+              </div>
+              <div class="tf-searchlist-viewpointZone">
+                <font-awesome-icon icon="map-marker-alt"></font-awesome-icon>
+                <span>{{ searchData.Zone }}</span>
+              </div>
             </div>
           </div>
-        </div>
+        </a>
       </div>
       <b-pagination size="md"
                     :total-rows="searchDatas.length"
@@ -80,7 +83,7 @@ export default {
     },
     getSearchDataFromFilter() {
       const vm = this;
-      vm.$eventHub.$emit('get-search-data', vm.searchDatas);
+      vm.$eventHub.$emit('get-search-data');
     },
     sendFilterFromSearchList() {
       const vm = this;
