@@ -31,7 +31,7 @@ export default {
       breadcrumb: [
         {
           text: 'Explore',
-          href: '/',
+          to: { name: 'SearchList' },
         },
         {
           text: '',
@@ -45,7 +45,9 @@ export default {
       const vm = this;
       vm.$eventHub.$on('send-search-data', (searchDatas) => {
         vm.info = vm._.filter(searchDatas, { _id: parseInt(vm.id, 10) })[0];
-        vm.breadcrumb[1].text = vm.info.Name;
+        if (!vm._.isEmpty(vm.info)) {
+          vm.breadcrumb[1].text = vm.info.Name;
+        }
       });
     },
     getSearchDataFromFilter() {

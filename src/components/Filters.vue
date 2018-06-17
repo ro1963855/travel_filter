@@ -99,10 +99,6 @@ export default {
     },
     sendSearchDataFromFilter() {
       const vm = this;
-      if (vm._.isEmpty(vm.completeDatas)) {
-        return;
-      }
-
       const filterDatas = this.filterCompleteDatas();
       const filterTags = vm.generateTags();
       vm.$eventHub.$emit('send-search-data', filterDatas, vm.filter, filterTags);
@@ -156,6 +152,9 @@ export default {
   watch: {
     filter: {
       handler() {
+        if (this.$router.currentRoute !== 'SearchList') {
+          this.$router.push('/');
+        }
         this.sendSearchDataFromFilter();
       },
       deep: true,

@@ -2,7 +2,7 @@
   <div class="tf-navbar">
     <b-navbar type="dark" variant="primary" class="h-100 p-0">
       <div class="tf-brand">
-        <b-navbar-brand href="/" class="tf-brand-logo mr-0">
+        <b-navbar-brand :to="{ name: 'SearchList' }" class="tf-brand-logo mr-0">
           <img src="../assets/img/logo.svg">
         </b-navbar-brand>
       </div>

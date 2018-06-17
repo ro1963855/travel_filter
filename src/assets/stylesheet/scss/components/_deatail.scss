@@ -1,15 +1,24 @@
 .tf-detail {
     width: 644px;
     padding: 24px 40px;
+    padding-bottom: 0;
     @include media-breakpoint-down(sm) {
         padding: 0;
     }
     .tf-detail-breadcrumb {
         height: 48px;
+        @include media-breakpoint-down(sm) {
+            margin: 24px 20px 0px;
+        }
+
     }
 
     .tf-detail-body {
         margin: 24px 0;
+        @include media-breakpoint-down(sm) {
+            margin-bottom: 0;
+        }
+
     }
 
     .tf-detail-picture {

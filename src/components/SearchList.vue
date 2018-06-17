@@ -16,7 +16,7 @@
         </div>
       </div>
       <div class="tf-searchlist-viewpointList">
-        <a :href="`/detail/${searchData._id}`"
+        <router-link :to="{ name: 'Detail', params: { id: searchData._id }}"
               v-for="searchData in showSearchDatas"
               v-bind:key="searchData._id">
           <div class="tf-searchlist-viewpoint">
@@ -36,7 +36,7 @@
               </div>
             </div>
           </div>
-        </a>
+        </router-link>
       </div>
       <b-pagination size="md"
                     :total-rows="searchDatas.length"
