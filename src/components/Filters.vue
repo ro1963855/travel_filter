@@ -70,7 +70,7 @@ export default {
   methods: {
     getKaohsiungOpenData() {
       const vm = this;
-      const api = '/api';
+      const api = process.env.API_HOST;
       vm.$http.get(api).then((response) => {
         vm.completeDatas = response.data.result.records;
         vm.zones = vm.getUniqueZone(vm.completeDatas);
