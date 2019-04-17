@@ -7,7 +7,6 @@ Vue.use(Router);
 
 export default new Router({
   mode: 'history',
-  base: '/vue/travel_filter/',
   routes: [
     {
       path: '/',
